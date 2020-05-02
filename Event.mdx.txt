@@ -1,0 +1,75 @@
+EVENTS:
+
+User Interface Events:
+Resize
+Focus
+Blur
+
+MouseEvents:
+click
+dblclick
+mousedown
+mouseup
+mouseover (hover)
+mouseout
+mousemove
+
+Keyboard Events:
+keydown
+keypress
+keyup
+
+Form Events:
+submit
+change
+
+CSS Events:
+transitionend
+
+Events and DOM Nodes:
+<button>Click here </button>
+let elem = document.querySelector("a")
+elem.addEventListener('click', function(){
+    console.log('button was clicked)
+})
+
+Event Object:
+window.addEventListener('resize, function(event){
+    console.log(event)
+})
+
+Default Actions:
+Click a link
+press down arrow
+click the submit button in a form
+window.addEventListener('click', function(event){
+    event.preventDefault();
+});
+
+target:
+event.target is what is selected
+event.currentTarget is where the event was launched
+
+Propagation:
+I can put event on parent and it will work on children because it bubbles up
+
+event.stopPropagation() stops the propagation and makes it not bubble up. 
+so if there is a click event listener on a child and one on the parent and you 
+don't want the parent to launch it's function when the child is clicked, you
+add event.stopPropagation
+
+
+Balloon Exercise:
+let fontSize = 18;
+let balloon = document.querySelector("#balloon")
+balloon.style.fontSize = fontSize + 'px' 
+
+
+window.addEventListener('Keydown', function(event){
+    if (event.code === 'ArrowUp'){
+    fontSize += fontSize * 0.1
+    balloon.style.fontSize = fontSize + 'px';
+    }
+})
+
+https://codepen.io/joshwcomeau/pen/LYpzwWY
