@@ -13,3 +13,22 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+
+let click = false
+
+window.addEventListener('click', function (event){
+    click = true
+    console.log(click)
+})
+
+setTimeout(function (){
+    if(click === true){
+        console.log("this works")
+        let p = document.getElementById('result')
+        p.innerText= "You've won"
+    }else{
+        console.log("this does too")
+        let p = document.getElementById('result')
+        p.innerText= "You've lost"
+    }
+} , 1000)

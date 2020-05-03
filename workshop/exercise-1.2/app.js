@@ -21,3 +21,28 @@
 // Stretch goal
 // Make the countdown live (show a countdown that updates several times a
 // second)
+
+let body = document.querySelector("body")
+let results = document.getElementById('result')
+
+let timeSpan = document.getElementById("time");
+let randomTime = Math.floor(Math.random()*5) + 3;
+timeSpan.innerText = randomTime;
+
+window.addEventListener('click', clicked)
+
+
+let hasClicked=false
+function clicked (){
+    hasClicked = true
+    results.innerText = "You've clicked on time"
+    window.removeEventListener('click', clicked)
+}
+
+setTimeout(function (){
+    if(hasClicked === false){
+        results.innerText ="You didn't click on time";
+        window.removeEventListener('click', clicked);
+    }
+    
+}, randomTime * 1000)

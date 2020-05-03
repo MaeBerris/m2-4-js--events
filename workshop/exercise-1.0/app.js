@@ -9,3 +9,12 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+const body = document.querySelector('body')
+
+window.addEventListener('click', function (event) {
+    console.log(event)
+    let main = document.querySelector(".main");
+    let notification = document.createElement("p");
+    notification.innerText ="You did it, you clicked";
+    main.appendChild(notification);
+});
