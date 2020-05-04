@@ -26,7 +26,8 @@ let body = document.querySelector("body")
 let results = document.getElementById('result')
 
 let timeSpan = document.getElementById("time");
-let randomTime = Math.floor(Math.random()*5) + 3;
+// random is Math.random()*(max-min)+min
+let randomTime = Math.floor(Math.random()*2) + 3;
 timeSpan.innerText = randomTime;
 
 window.addEventListener('click', clicked)
