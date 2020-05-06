@@ -34,38 +34,49 @@ function appearButton (numberOfButtons){
         button.style.top =`${Math.random()*85}vh`
         clickedState.push(false)
     
-        button.addEventListener('click', function colorButton(event){
-            button.classList.add('green');
-            const buttonId = event.target.id;
-            const id = buttonId.split('-')[1];
-            clickedState[id] = !clickedState[id];
-            console.log(clickedState);
-            
-        })
+        button.addEventListener('click', colorButton)
     }
+    let buttonStatus = setInterval(function(){
+        if (checkArray(clickedState)){
+            endGame();
+            clearInterval(buttonStatus)
+        };
+    },400);
 }
+function colorButton (event){
+    const buttonId = event.target.id;
+    document.getElementById(buttonId).classList.toggle('green')
+    const id = buttonId.split('-')[1];
+    clickedState[id] = !clickedState[id];
+    console.log(clickedState);
+    
+}
+
+
+
+
 function checkArray(arr) {
     return arr.every(function (item) {
       return item;
     });
   }
 
-// let buttonStatus = setInverval(function(){
-//     if (checkArray(clickedState)){
-//         endGame();
-//         clearInterval(buttonStatus)
-//     };
-// },400);
-
 
 function endGame(){
     let endMessage = document.querySelector('#gameEnd')
-    if(checkArray(clickedState)) {
+    if(checkArray(clickedState)=== true) {
         console.log("you've won")
         endMessage.innerText = "You've won !"
+        endMessage.style.backgroundColor = 'green';
+        endMessage.style.width = '200px';
+        endMessage.style.height = '200px';
+        
     }else {
         console.log("you've lost")
         endMessage.innerText = "You've lost !"
+        endMessage.style.backgroundColor = 'black';
+        endMessage.style.width = '200px';
+        endMessage.style.height = '200px';
     }
     for (let i = 0; i < randomNumOfButtons; i++) {
         document.getElementById(`button-${i}`).removeEventListener('click', colorButton)

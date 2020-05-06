@@ -21,6 +21,18 @@
         .green{
             background-color:seagreen;
         }
+        .center{
+            position:absolute;
+            top:50%;
+            left:50%;
+        }
+        #gameEnd{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-size:33px;
+        }
     </style>
 
 </head>
@@ -28,6 +40,8 @@
     <main id = "main">
         <button id="startButton">Press to start</button>
     </main>
-    <p id=gameEnd></p>
+    <div class = "center">
+        <p id="gameEnd" class = "messageBox"></p>
+    </div>
     <script src="app.js"></script>
 </body>
